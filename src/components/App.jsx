@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
-import { nanoid } from 'nanoid';
+import { Searchbar } from './Searchbar/Searchbar';
+import { ImageGallery } from './ImageGallery/ImageGallery';
 
-import { Searchbar } from './Searchbar';
-import { Button } from './Button';
-import { ImageGallery } from './ImageGallery ';
-import { ImageGalleryItem } from './ImageGalleryItem';
-import { Loader } from './Loader';
-import { Modal } from './Modal';
+// import css from '../components/Modal/Modal.css';
+import style from './styles.module.css';
 
-import css from '../index.css';
+// const BASE_URL = 'https://pixabay.com/api/';
+// const API_KEY = '37518101-4c8b383dea2a151ad4bc810e7';
 
 class App extends Component {
+  // зберігаємо дані, щоб відправити їх вище по дереву компонентів
+  state = {
+    name: '',
+  };
 
+  handleFormSubmit = name => {
+    this.setState({ name });
+  };
 
   render() {
+    // const { showModal } = this.state;
     return (
-      <div>
-        {/* <h1>Phonebook</h1>
-      <Form onInput={this.handleInputChange} />
-
-      <h2>Contacts</h2>
-      <section className={css.sectionStyle}>
-        <Filter onSearch={this.handleSearch} value={this.state.filter} />
-        <ContactList
-          contacts={filterContacts}
-          onDelete={this.handleDeleteContact}
-        />
-      </section> */}
+      <div className={style.App}>
+        <Searchbar onSubmit={this.handleFormSubmit} />
+        <ImageGallery name={this.state.name} />
       </div>
     );
-  };
+  }
 }
 
 export default App;
