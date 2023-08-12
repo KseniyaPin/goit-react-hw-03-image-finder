@@ -29,8 +29,14 @@ export class Searchbar extends Component {
         <form className={css.SearchForm} onSubmit={this.handleSubmit}>
           <button type="submit" className={css.SearchFormButton}>
             <span className={css.SearchFormButtonLabel}>
-              <CiSearch style={{ fill: '#222222', marginRight: '4px' }}  />
-              Search
+              <CiSearch
+                style={{
+                  fill: '#222222',
+                  stroke: '#222222',
+                  width: 25,
+                  height: 25,
+                }}
+              />
             </span>
           </button>
 
